@@ -24,7 +24,7 @@
     .page__content{
         max-width: 1280px;
         max-width: calc(100%-40px);
-        padding-left: 19px;
+        
     }
 }
 
@@ -37,5 +37,6 @@
   @media screen and (max-width: 320px) {
     .page__content {
       max-width: 320px;
+      margin-left: 19px;
     }
 }
