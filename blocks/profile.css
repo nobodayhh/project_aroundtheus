@@ -75,3 +75,37 @@
 }
   
 
+@media screen and (max-width: 320px) {
+    .profile {
+      flex-direction: column;
+      max-width: 282px;
+      height: 286px;
+      margin-top: 42px;
+    }
+    .profile__title {
+      font-size: 22px;
+      line-height: 26.63px;
+      padding-top: 30px;
+    }
+    .profile__info {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
+    }
+    .profile__description {
+      width: 282px;
+      height: 14px;
+      text-align: center;
+    }
+    .profile__edit-button {
+        height: 18px;
+        width: 18px;
+        margin-top:34px;
+    }
+    .profile__add-button {
+      width: 282px;
+      border-width: 2px;
+      margin-top: 36px;
+    }
+  }

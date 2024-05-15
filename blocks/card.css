@@ -48,3 +48,12 @@
     opacity: 100%;
     cursor: pointer;
 }
+
+  
+@media screen and (max-width: 320px) {
+    
+    .cards {
+        margin-top: 36px 0 0;
+    }
+    
+}
