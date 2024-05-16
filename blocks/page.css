@@ -5,7 +5,7 @@
 }
 
 .page__content{
-    display: flex; /*All the contents are placed in a single axis*/
+    display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
@@ -17,9 +17,6 @@
     margin: 0 auto;
 }
 
-
-/*Adding media components as descripted in part6 of the project*/
-
 @media (screen) and (max-width: 1280px){
     .page__content{
         max-width: 1280px;
@@ -28,15 +25,14 @@
     }
 }
 
-@media screen and (max-width: 680px) {
+/* @media screen and (max-width: 680px) {
     .page__section{
       max-width: calc(100%-40px);
     }
-}
+} */
   
-  @media screen and (max-width: 320px) {
+@media screen and (max-width: 320px) {
     .page__content {
-      max-width: 320px;
-      margin-left: 19px;
+        max-width: 320px;
     }
 }

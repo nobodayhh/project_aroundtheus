@@ -8,15 +8,13 @@
     text-align: left;
     color:#545454;
     font-size: 18px;
-    width: 318px;
-    height: 18px;
 }
 
 @media screen and (max-width: 680px) {
     .footer {
       max-width: 282px;
-      height: 14px;
-      margin: 48px auto;
+      margin-top: 40px;
+      margin-left: 19px;
     }
   
     .footer__copyright {

@@ -1,5 +1,5 @@
 .card{
-    display: flex; /*y-axis display*/
+    display: flex;
     flex-direction: column;
     background-color: white;
     list-style-type: none;
@@ -11,7 +11,7 @@
 .card__image{
     height: 282px;
     width: 282px;
-    border-radius: 10px 10px 0px 0px;
+    border-radius: 10px 10px 0 0;
     cursor: pointer;
 }
 
@@ -32,6 +32,9 @@
     font-weight: 900;
     font-size: 24px;
     line-height: 29.05px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .card__like-button {
@@ -44,9 +47,7 @@
 }
   
 .card__like-button:hover {
-    transform: scale(1.2);
-    opacity: 100%;
-    cursor: pointer;
+    opacity: 50%;
 }
 
   
