@@ -49,12 +49,3 @@
 .card__like-button:hover {
     opacity: 50%;
 }
-
-  
-@media screen and (max-width: 320px) {
-    
-    .cards {
-        margin-top: 36px 0 0;
-    }
-    
-}

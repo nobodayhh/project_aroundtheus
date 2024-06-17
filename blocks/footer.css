@@ -10,7 +10,7 @@
     font-size: 18px;
 }
 
-@media screen and (max-width: 680px) {
+@media screen and (max-width: 320px) {
     .footer {
       max-width: 282px;
       margin-top: 40px;
