@@ -126,6 +126,11 @@
   }
 }
 
+/**
+　 I did change the space between header and profile on 320view. When I run the code, everything looks good. 
+  Between iteraterion 8 and 9 there were changes on the code. 
+  Didn't know what happened why you didnt see changes. 
+*/
 @media screen and (max-width: 320px) {
   .profile {
     flex-direction: column;
