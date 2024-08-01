@@ -24,4 +24,4 @@ The webpage is a display of different places around the U.S.
 **Links**
 
 [Link to the project on GitHub Pages](https://github.com/nobodayhh/project_aroundtheus.git)
-[Link to the project description video]()
+[Link to the project description video](https://drive.google.com/file/d/17GvQgboARGGspTszk-rR8z3k02Qr5OX0/view?usp=share_link)
