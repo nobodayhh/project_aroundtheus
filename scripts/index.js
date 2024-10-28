@@ -30,3 +30,20 @@ const initialCard5 ={
 
 
 const initialCards = [initialCard0, initialCard1, initialCard2, initialCard3, initialCard4, initialCard5];
+
+
+const profileEditModal = document.querySelector("#edit-modal");
+const profileEditForm = profileEditModal.querySelector("#edit-profile-form");
+const profileModalCloseButton = profileEditModal.querySelector(".modal__close");
+const profileEditButton = document.querySelector("#profile-edit-button");
+
+profileEditButton.addEventListener("click", () => {
+    console.log("clickedEditProfile");
+    profileEditModal.classList.add("modal_opened");
+});
+
+
+profileModalCloseButton.addEventListener("click", () => {
+    console.log("closeProfileEdit");
+    profileEditModal.classList.remove("modal_opened");
+});
