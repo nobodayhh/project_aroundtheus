@@ -32,18 +32,85 @@ const initialCard5 ={
 const initialCards = [initialCard0, initialCard1, initialCard2, initialCard3, initialCard4, initialCard5];
 
 
+
+// find the form in the DOM
 const profileEditModal = document.querySelector("#edit-modal");
-const profileEditForm = profileEditModal.querySelector("#edit-profile-form");
+const profileFormElement = profileEditModal.querySelector("#edit-profile-form");
+
+// find the open&close buttons
 const profileModalCloseButton = profileEditModal.querySelector(".modal__close");
 const profileEditButton = document.querySelector("#profile-edit-button");
 
+// find the form fields in the DOM
+const nameInput = profileFormElement.querySelector(".modal__input_type_name");
+const jobInput = profileFormElement.querySelector(".modal__input_type_description");
+
+// find the profile elements in the DOM
+const profileName = document.querySelector("#profile__title");
+const profileJob = document.querySelector("#profile__description");
+
+// image cards
+const cardListEl = document.querySelector(".cards__list");
+const cardTemplate = document.querySelector("#cardTemplate").content;
+
+//open&close the form
+function openCard(modal) {
+    modal.classList.add("modal_opened");
+}
+function closeCard(modal) {
+    modal.classList.remove("modal_opened");
+}
+
+//initalize the form
+function toggleForm() {
+    nameInput.value = profileName.textContent;
+    jobInput.value = profileJob.textContent;
+}
+
+// the form submission handler. Note that its name 
+// starts with a verb and concisely describes what it does
+function handleProfileFormSubmit(evt) {
+  evt.preventDefault(); 
+  profileName.textContent = nameInput.value;
+  profileJob.textContent = jobInput.value;
+  closeCard(profileEditModal);
+}
+
+// connect the handler to the form:
+// it will watch the submit event
+profileFormElement.addEventListener('submit', handleProfileFormSubmit);
+
+
 profileEditButton.addEventListener("click", () => {
     console.log("clickedEditProfile");
-    profileEditModal.classList.add("modal_opened");
+    openCard(profileEditModal);
+    toggleForm();
 });
 
 
 profileModalCloseButton.addEventListener("click", () => {
     console.log("closeProfileEdit");
-    profileEditModal.classList.remove("modal_opened");
+    closeCard(profileEditModal);
 });
+  
+function getCardElement(cardData) {
+    const cardElement = cardTemplate.querySelector(".card").cloneNode(true);
+    const cardImageEl = cardElement.querySelector(".card__image");
+    const cardTitleEl = cardElement.querySelector(".card__title");
+
+    cardImageEl.src = cardData.link;
+    cardImageEl.alt = cardData.name;
+    cardTitleEl.textContent = cardData.name;
+
+    return cardElement;
+}
+
+function renderCard(cardData) {
+    const cardElement = getCardElement(cardData);
+    cardListEl.prepend(cardElement);
+}
+
+initialCards.forEach((cardData) => renderCard(cardData, cardListEl));
+
+
+  
