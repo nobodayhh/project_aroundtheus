@@ -54,15 +54,15 @@ const cardListEl = document.querySelector(".cards__list");
 const cardTemplate = document.querySelector("#cardTemplate").content;
 
 //open&close the form
-function openCard(modal) {
+function openModal(modal) {
     modal.classList.add("modal_opened");
 }
-function closeCard(modal) {
+function closeModal(modal) {
     modal.classList.remove("modal_opened");
 }
 
 //initalize the form
-function toggleForm() {
+function fillProfileInputs() {
     nameInput.value = profileName.textContent;
     jobInput.value = profileJob.textContent;
 }
@@ -83,14 +83,14 @@ profileFormElement.addEventListener('submit', handleProfileFormSubmit);
 
 profileEditButton.addEventListener("click", () => {
     console.log("clickedEditProfile");
-    openCard(profileEditModal);
+    openModal(profileEditModal);
     toggleForm();
 });
 
 
 profileModalCloseButton.addEventListener("click", () => {
     console.log("closeProfileEdit");
-    closeCard(profileEditModal);
+    closeModal(profileEditModal);
 });
   
 function getCardElement(cardData) {
