@@ -73,7 +73,7 @@ function handleProfileFormSubmit(evt) {
   evt.preventDefault(); 
   profileName.textContent = nameInput.value;
   profileJob.textContent = jobInput.value;
-  closeCard(profileEditModal);
+  closeModal(profileEditModal);
 }
 
 // connect the handler to the form:
@@ -84,7 +84,7 @@ profileFormElement.addEventListener('submit', handleProfileFormSubmit);
 profileEditButton.addEventListener("click", () => {
     console.log("clickedEditProfile");
     openModal(profileEditModal);
-    toggleForm();
+    fillProfileInputs();
 });
 
 
