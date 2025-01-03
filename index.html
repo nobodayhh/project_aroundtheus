@@ -27,81 +27,11 @@
             <button class="profile__edit-button" id="profile-edit-button" type="button"></button>
             <p class="profile__description" id="profile__description">Explorer</p>
           </div>
-          <button class="profile__add-button" type="button"></button>
+          <button class="profile__add-button" id="profile-add-button" type="button"></button>
         </section>
         <section class="cards page__section">
           <ul class="cards__list"></ul>
         </section>
-        <!-- <section class="cards page__section">
-          <ul class="cards__list">
-            <li class="card">
-              <img
-                src="./images/yosemite.jpg"
-                alt="Yosemite image"
-                class="card__image"
-              />
-              <div class="card__description">
-                <h2 class="card__title">Yosemite Valley</h2>
-                <button class="card__like-button" type="button"></button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                src="./images/lake-louise.jpg"
-                alt="Lake Louise image"
-                class="card__image"
-              />
-              <div class="card__description">
-                <h2 class="card__title">Lake Louise</h2>
-                <button class="card__like-button" type="button"></button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                src="./images/bald-mountains.jpg"
-                alt="Bald Mountains image"
-                class="card__image"
-              />
-              <div class="card__description">
-                <h2 class="card__title">Bald Mountains</h2>
-                <button class="card__like-button" type="button"></button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                src="./images/latemar.jpg"
-                alt="Latemar image"
-                class="card__image"
-              />
-              <div class="card__description">
-                <h2 class="card__title">Latemar</h2>
-                <button class="card__like-button" type="button"></button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                src="./images/vanoise.jpg"
-                alt="Vanoise image"
-                class="card__image"
-              />
-              <div class="card__description">
-                <h2 class="card__title">Vanoise National Park</h2>
-                <button class="card__like-button" type="button"></button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                src="./images/lago.jpg"
-                alt="Lago di Braies image"
-                class="card__image"
-              />
-              <div class="card__description">
-                <h2 class="card__title">Lago di Braies</h2>
-                <button class="card__like-button" type="button"></button>
-              </div>
-            </li>
-          </ul> 
-        </section> --> 
       </main>
       <footer class="footer page__section">
         <p class="footer__copyright">&copy; 2024 Iris Huang</p>
@@ -128,11 +58,43 @@
           </form>
         </div>
       </div>
+      <!--Add card form modal-->
+      <div class="modal" id="edit-card-modal">
+        <div class="modal__content">
+          <button class="modal__close" id="modal-close-button" type="button"></button>
+          <p class="modal__heading">New Place</p>
+          <form class="modal__form" id="add-new-card-form">
+            <input
+              class="modal__input modal__input_type_name"
+              name="title"
+              placeholder="Title"
+              type="text"
+            />
+            <input
+              class="modal__input modal__input_type_description"
+              name="imageLink"
+              placeholder="Image Link"
+              type="text"
+            />
+            <button class="modal__button" type="submit">Create</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!--Image display modal-->
+    <div class="modal" id="image-modal">
+      <div class="modal__preview-container">
+        <img class="modal__image" src="" alt="" />
+        <p class="modal__text"></p>
+        <button class="modal__close" type="button"></button>
+      </div>
     </div>
 
     <!-- Template section for the cards -->
     <template id="cardTemplate">
       <li class="card">
+        <button class="card__delete-button" type="button"></button>
         <img
           src=""
           alt=""
@@ -140,7 +102,7 @@
         />
         <div class="card__description">
           <h2 class="card__title"></h2>
-          <button class="card__like-button" type="button"></button>
+          <button class="card__like-button" type="button" id="card-like-button"></button>
         </div>
       </li>
     </template>
