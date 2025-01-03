@@ -77,6 +77,7 @@ function fillProfileInputs() {
     jobInput.value = profileJob.textContent;
 }
 
+
 // the form submission handler. Note that its name 
 // starts with a verb and concisely describes what it does
 function handleProfileFormSubmit(evt) {
@@ -124,6 +125,7 @@ function handleCardFormSubmit(evt) {
         link: new URL(urlInput.value),
     };
     renderCard(newCard, cardListEl);
+    cardFormElement.reset();
     closeModal(cardEditModal);
   }
 
@@ -131,7 +133,9 @@ function handleCardFormSubmit(evt) {
 // it will watch the submit event
 cardFormElement.addEventListener('submit', handleCardFormSubmit);
 
-
+imageModalCloseButton.addEventListener("click", () => {
+    closeModal(imageModal);
+})
   
 function getCardElement(cardData) {
     const cardElement = cardTemplate.querySelector(".card").cloneNode(true);
@@ -148,7 +152,7 @@ function getCardElement(cardData) {
 
     // delect card
     cardDeleteButton.addEventListener("click", () => {
-        cardElement.remove(".card");
+        cardElement.remove();
     });
 
     cardImageEl.addEventListener("click", () => {
@@ -157,10 +161,6 @@ function getCardElement(cardData) {
         imageModalText.textContent = cardData.name;
         openModal(imageModal);
     });
-
-    imageModalCloseButton.addEventListener("click", () => {
-        closeModal(imageModal);
-    })
 
     cardImageEl.src = cardData.link;
     cardImageEl.alt = cardData.name;

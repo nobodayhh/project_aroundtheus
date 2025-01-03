@@ -9,14 +9,14 @@
     padding: 0 19px;
     display: none;
     font-family: "Inter", Arial, sans-serif;
-    visibility: hidden;
+    transition: visibility 0s 0.3s, opacity 0.5s ease-in-out;
 }
 
 .modal_opened {
     display: flex;
-    visibility: visible;
+    transition: visibility 0s, opacity 0.5s ease-in-out;
     opacity: 1;
-    transition: opacity 0.5s ease;
+    visibility: visible;
 }
 
 .modal__close {
