@@ -7,14 +7,12 @@
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 999;
     padding: 0 19px;
-    display: none;
+    display: flex;
     font-family: "Inter", Arial, sans-serif;
-    transition: visibility 0s 0.3s, opacity 0.3s ease-in-out;
+    transition: visibility 0.3s, opacity 0.3s ease-in;
 }
 
 .modal_opened {
-    display: flex;
-    transition: visibility 0.3s, opacity 0.3s ease-in;
     opacity: 1;
     visibility: visible;
 }

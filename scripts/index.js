@@ -107,7 +107,6 @@ profileModalCloseButton.addEventListener("click", () => {
 cardEditButton.addEventListener("click", () => {
     console.log("clickedCardAdd");
     openModal(cardEditModal);
-    fillProfileInputs();
 });
 
 cardModalCloseButton.addEventListener("click", () => {
