@@ -7,6 +7,8 @@
     z-index: 999;
     padding: 0 19px;
     display: flex;
+    align-items: center;
+    justify-content: center;
     position: fixed;
     opacity: 0;
     visibility: hidden;
@@ -34,9 +36,7 @@
   }
   
 .modal__content {
-    position: absolute;
-    top: 195px;
-    left: 425px;
+    position: relative;
     padding: 34px 36px 36px;
     background-color: #fff;
     color: #000;

@@ -63,12 +63,22 @@ const imageModalImgEl = imageModal.querySelector(".modal__image");
 const imageModalText = document.querySelector(".modal__text");
 const imageModalCloseButton = imageModal.querySelector(".modal__close");
 
+function handleEscapeClose(evt) {
+  if (evt.key !== "Escape") return;
+  const openedModal = document.querySelector(".modal_opened");
+  if (openedModal) {
+    closeModal(openedModal);
+  }
+}
+
 //open&close the forms
 function openModal(modal) {
     modal.classList.add("modal_opened");
+    document.addEventListener("keydown", handleEscapeClose);
 }
 function closeModal(modal) {
     modal.classList.remove("modal_opened");
+    document.removeEventListener("keydown", handleEscapeClose);
 }
 
 // close modal when clicking on overlay
@@ -80,113 +90,11 @@ document.querySelectorAll(".modal").forEach((modal) => {
   });
 });
 
-// close modal with Escape key
-document.addEventListener("keydown", (evt) => {
-  if (evt.key !== "Escape") return;
-  const openedModal = document.querySelector(".modal_opened");
-  if (openedModal) {
-    closeModal(openedModal);
-  }
-});
-
 //initalize the form
 function fillProfileInputs() {
     nameInput.value = profileName.textContent;
     jobInput.value = profileJob.textContent;
 }
-
-/** -----------form validation section ------------*/
-
-// show error
-const showInputError = (formElement, inputElement, errorMessage) => {
-  // assuming each input has an id and the span has id="<input-id>-error"
-  const errorElement = formElement.querySelector(
-    `#${inputElement.id}-error`
-  );
-  inputElement.classList.add("modal-input-error");
-  if (errorElement) {
-    errorElement.textContent = errorMessage;
-    errorElement.classList.add("modal-error-visible");
-  }
-};
-
-// hide error
-const hideInputError = (formElement, inputElement) => {
-  const errorElement = formElement.querySelector(
-    `#${inputElement.id}-error`
-  );
-  inputElement.classList.remove("modal-input-error");
-  if (errorElement) {
-    errorElement.classList.remove("modal-error-visible");
-    errorElement.textContent = "";
-  }
-};
-
-const setCustomErrorMessage = (inputElement) => {
-  inputElement.setCustomValidity("");
-  if (inputElement.validity.valueMissing) {
-    inputElement.setCustomValidity("This field is required.");
-  } else if (inputElement.type === "url" && !inputElement.validity.valid) {
-    inputElement.setCustomValidity(
-      "Please enter a valid URL (e.g., https://example.com)."
-    );
-  }
-};
-
-const checkInputValidity = (formElement, inputElement) => {
-  setCustomErrorMessage(inputElement);
-  if (!inputElement.validity.valid) {
-    showInputError(formElement, inputElement, inputElement.validationMessage);
-  } else {
-    hideInputError(formElement, inputElement);
-  }
-};
-
-const hasInvalidInput = (inputList) => {
-  return inputList.some((inputElement) => !inputElement.validity.valid);
-};
-
-const toggleButtonState = (inputList, buttonElement) => {
-  if (!buttonElement) return;
-  if (hasInvalidInput(inputList)) {
-    buttonElement.classList.add("modal__button_disabled");
-    buttonElement.setAttribute("disabled", true);
-  } else {
-    buttonElement.classList.remove("modal__button_disabled");
-    buttonElement.removeAttribute("disabled");
-  }
-};
-
-const setEventListeners = (formElement) => {
-  const inputList = Array.from(formElement.querySelectorAll(".modal__input"));
-  const buttonElement = formElement.querySelector(".modal__button");
-
-  toggleButtonState(inputList, buttonElement);
-
-  inputList.forEach((inputElement) => {
-    inputElement.addEventListener("input", () => {
-      checkInputValidity(formElement, inputElement);
-      toggleButtonState(inputList, buttonElement);
-    });
-  });
-};
-
-const enableValidation = () => {
-  // select the forms, not the inputs
-  const formList = Array.from(document.querySelectorAll(".modal__form"));
-
-  formList.forEach((formElement) => {
-    formElement.addEventListener("submit", (evt) => {
-      evt.preventDefault();
-    });
-    // pass the actual form element, not a string
-    setEventListeners(formElement);
-  });
-};
-
-enableValidation();
-
-/**---------------------------------------------- */
 
 
 // the form submission handler. Note that its name 
