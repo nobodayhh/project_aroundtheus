@@ -113,8 +113,9 @@ profileFormElement.addEventListener('submit', handleProfileFormSubmit);
 // open and close the profile form
 profileEditButton.addEventListener("click", () => {
     console.log("clickedEditProfile");
-    openModal(profileEditModal);
     fillProfileInputs();
+    resetValidation(profileFormElement, window.validationSettings);
+    openModal(profileEditModal);
 });
 
 profileModalCloseButton.addEventListener("click", () => {
@@ -125,6 +126,8 @@ profileModalCloseButton.addEventListener("click", () => {
 // open and close the card form
 cardEditButton.addEventListener("click", () => {
     console.log("clickedCardAdd");
+    cardFormElement.reset();
+    resetValidation(cardFormElement, window.validationSettings);
     openModal(cardEditModal);
 });
 

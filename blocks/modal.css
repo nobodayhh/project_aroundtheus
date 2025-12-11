@@ -43,7 +43,7 @@
     font-family: "Inter", Arial, sans-serif;
     margin: auto;
     border-radius: 10px;
-    height: 330px;
+    /* height: 330px; */
     max-height: 330px;
     width: 430px;
     max-width: 430px;
@@ -81,11 +81,11 @@
 .modal__input {
     border: none;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-    line-height: 16.94pxpx;
+    line-height: 16.94px;
     font-weight: 400;
     font-size: 14px;
     height: 27.26px;
-    margin-top: 20px;
+    /* margin-top: 20px; */
 }
 
 .modal__input:last-of-type {
@@ -104,7 +104,7 @@
   font-size: 12px;
   font-weight: 400;
   line-height: 14.52px;
-  margin: 0 0 16px 0; 
+  /* margin: 0 0 16px 0;  */
   max-width: 358px;
   display: block;
   min-height: 16px;
@@ -129,7 +129,7 @@
     color: #fff;
     height: 50.15px;
     font-size: 18px;
-    font-weight: 400px;
+    font-weight: 400;
     line-height: 18px;
     border-radius: 5px;
 }
@@ -189,7 +189,7 @@
 
     .modal__content {
         width: 282px;
-        height: 322px;
+        /* height: 322px; */
         padding: 25px 22px;
         box-sizing: border-box;
     }

@@ -108,4 +108,32 @@
   };
 
   enableValidation(validationSettings);
+  window.validationSettings = validationSettings;
 })();
+
+// Function to reset validation state of a form
+function resetValidation(formElement, settings) {
+  const inputs = Array.from(
+    formElement.querySelectorAll(settings.inputSelector)
+  );
+  const button = formElement.querySelector(settings.submitButtonSelector);
+
+  inputs.forEach((input) => {
+    input.classList.remove(settings.inputErrorClass);
+    const errorEl = formElement.querySelector(`#${input.id}-error`);
+    if (errorEl) {
+      errorEl.textContent = "";
+      errorEl.classList.remove(settings.errorClass);
+    }
+  });
+
+  const hasInvalid = inputs.some((input) => !input.validity.valid);
+
+  if (hasInvalid) {
+    button.classList.add(settings.inactiveButtonClass);
+    button.disabled = true;
+  } else {
+    button.classList.remove(settings.inactiveButtonClass);
+    button.disabled = false;
+  }
+}
